@@ -1,0 +1,15 @@
+environnement virtuel : 
+python -m venv env
+
+activation :
+env\Scripts\activate
+
+installation de Django :
+pip install Django
+
+demarrer le project : 
+
+django-admin startproject employe_project .(mettre toujours le point à la fin)
+
+cration de l'application employe :
+python manage.py startapp employe

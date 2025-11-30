@@ -4,5 +4,12 @@
 <!--voici le body en dessous-->
 
   {% block content %}
-    test
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+        {{form.nom}}
+        {{form.email}}
+        {{form.poste}}
+        {{form.salaire}}
+        <button type="submit" class="btn btn-primary">Enregistrez</button>
+    </form>
     {% endblock %}

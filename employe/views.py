@@ -27,3 +27,11 @@ def modifier_employe(request, id) :
         form.save()
         return redirect('liste_employes')
     return render (request, 'employe/formulaire.html' , {'form': form})
+
+def supprimer_employe(request, id) :
+    employe = get_object_or_404(Employe, id=id)
+    if request.method == "POST" :
+        employe.delete()
+        return redirect('liste_employes')
+    return render (request, 'employe/confirmation_supprimer.html' , {'employe': employe})
+

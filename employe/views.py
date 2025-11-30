@@ -33,5 +33,5 @@ def supprimer_employe(request, id) :
     if request.method == "POST" :
         employe.delete()
         return redirect('liste_employes')
-    return render (request, 'employe/confirmation_supprimer.html' , {'employe': employe})
+    return render (request, 'employe/confirmation_suppression.html' , {'employe': employe})
 

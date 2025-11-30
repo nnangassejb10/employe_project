@@ -7,3 +7,5 @@ from .models import Employe # POUR IMPORTER LE MODELE EMPLOYE SI Y AVAIT PLUSIEU
 def liste_employes(request):
     employes = Employe.objects.all()# renvoyer tout les employés dans notre liste
     return render(request, 'employe/list.html' , {'employes': employes})
+
+

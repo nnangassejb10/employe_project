@@ -12,13 +12,13 @@ def liste_employes(request):
 
 def ajouter_employe(request):
     form = EmployeForm(request.POST or None)
-    if form.is_valid() :
+    if form.is_valid():
         form.save()
-
         return redirect('liste_employes')
+    else:
+        print(form.errors)  # <-- Affiche les erreurs dans la console
 
-    return render (request, 'employe/formulaire.html' , {'form': form})
-
+    return render(request, 'employe/formulaire.html', {'form': form})
 
 def modifier_employe(request, id) :
     employe = get_object_or_404(Employe, id=id)

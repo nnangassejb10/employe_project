@@ -1,15 +1,35 @@
 {% extends "employe/base.html" %}
 
+{% block content %}
+<h2>Ajouter un employé</h2>
+<form method="POST" class="space-y-4">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    
+    <div>
+        {{ form.nom.label_tag }}<br>
+        {{ form.nom }}
+        {{ form.nom.errors }}
+    </div>
+    
+    <div>
+        {{ form.email.label_tag }}<br>
+        {{ form.email }}
+        {{ form.email.errors }}
+    </div>
+    
+    <div>
+        {{ form.poste.label_tag }}<br>
+        {{ form.poste }}
+        {{ form.poste.errors }}
+    </div>
+    
+    <div>
+        {{ form.salaire.label_tag }}<br>
+        {{ form.salaire }}
+        {{ form.salaire.errors }}
+    </div>
 
-<!--voici le body en dessous-->
-
-  {% block content %}
-    <form method="POST" class="space-y-4">
-        {% csrf_token %}
-        {{form.nom}}
-        {{form.email}}
-        {{form.poste}}
-        {{form.salaire}}
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-    </form>
-    {% endblock %}
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
+{% endblock %}

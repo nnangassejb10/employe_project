@@ -1,12 +1,13 @@
 {% extends "employe/base.html" %}
 
+{% block content %}
+<form method="POST" class="space-y-4">
+    <p>Es-tu sûr de vouloir supprimer <strong>{{ employe.nom }}</strong> ?</p>
+    {% csrf_token %}
 
-<!--voici le body en dessous-->
-
-  {% block content %}
-    <form method="POST" class="space-y-4">
-        <span>Es-tu sur de vouloir supprimer <strong>{{employe.nom}}</strong></span>
-        {% csrf_token %}
-        <button type="submit" class="btn btn-primary">Enregistrez</button>
-    </form>
-    {% endblock %}
+    <div class="flex items-center gap-4">
+        <button type="submit" class="btn btn-error">Supprimer</button>
+        <a href="{% url 'liste_employes' %}" class="btn btn-neutral">Annuler</a>
+    </div>
+</form>
+{% endblock %}
